@@ -1,0 +1,13 @@
+[package]
+name = "abcdf"
+version = "0.0.1"
+compiler = "0.11.0"
+entrypoint = "lib.typ"
+authors = ["Tieming Geng <https://github.com/yopming>"]
+license = "GPLv3"
+description = "A collection of typst template used for quiz, test, assignment, and note in University teaching"
+
+[template]
+path = "template"
+entrypoint = "quiz.typ"
+thumbnail = "thumbnail.png"

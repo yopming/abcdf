@@ -6,7 +6,8 @@
   pre_id: "Bronco ID: ________________",
   date: "",
   show_cover: false,
-  body) = {
+  body
+) = {
   // set the document's basic properties
   set document(title: title, author: authors)
   set par(justify: true)

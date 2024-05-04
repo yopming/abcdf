@@ -1,4 +1,4 @@
-#import "../quiz/template.typ": *
+#import "@local/abcdf:0.0.1": *
 
 #show: exam.with(
   title: "Test",
@@ -14,7 +14,7 @@
   test
 ]
 
-#prob(points:11)[
+#prob(points:111)[
   test2  
   #solution[
     'test' 
