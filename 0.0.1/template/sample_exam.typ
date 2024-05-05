@@ -19,9 +19,23 @@
   - Good luck!
 ]
 
+#prob(points:1)[
+  Which of the following process is used by the CPU to execute instructions in a program?
+  #prob_choices(
+    vertical: false, 
+    "Decode-Fetch-Execute",
+    "Fetch-Decode-Execute",
+    "Decode-Execute-Fetch",
+    "Fetch-Execute_Decode",
+    "Fetch-Execute_Decode",
+    "Fetch-Execute_Decode",
+  )
+]
+
 
 #prob[
-  test 
+  Which of the following is the coding scheme contains a set of 128 or 256 numeric codes that used to represent characters in the computer's memory.
+  #prob_choices("Unicode", "ASCII", "FORTRAN", "Two' Complement")
 ]
 
 #prob(points:2)[

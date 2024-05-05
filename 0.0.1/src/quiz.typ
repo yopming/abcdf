@@ -11,7 +11,7 @@
 ) = {
   // set the document's basic properties
   set document(title: title, author: authors)
-  set par(justify: true)
+  set par(justify: false)
   set page(paper: "us-letter")
   set text(11pt, font: "Linux Libertine", lang: "en") // font size
   show raw: text.with(font: "Iosevka") // code font family
@@ -107,18 +107,26 @@
 }
 
 // multiple answer problem
-#let prob_choices(..items) = {
+#let prob_choices(vertical: true, ..items) = {
   let choice_counter = counter("options")
+  choice_counter.update(0) // reset counter for each problem
+
+  // manually build the choices stack
+  // if vertical, 10pt + 1fr separation
+  // otherwise, new line break
   let options = for item in items.pos() {
     choice_counter.step() 
     choice_counter.display("A. ")
-    (item)
-    h(1fr)
+    text(hyphenate: false, item)
+    if not vertical {
+      linebreak()
+    } else {
+      h(10pt)
+      h(1fr)
+    }
   }
   
-  pad(left: 12pt,
-    stack(dir: ltr, spacing: 100pt, options)
-  )
+  pad(left: 12pt, stack(options))
 }
 
 // short answer problem
