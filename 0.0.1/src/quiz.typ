@@ -4,6 +4,7 @@
   course: "",
   pre_name: "Name: ________________________",
   pre_id: "Bronco ID: ________________",
+  semester: "",
   date: "",
   show_cover: false,
   body
@@ -15,34 +16,77 @@
   set text(11pt, font: "Linux Libertine", lang: "en") // font size
   show raw: text.with(font: "Iosevka") // code font family
 
-  set page(
-    margin: (top: 5em), // page top margin
-    header: [
-      #set text(10pt)
-      #course
-      #h(1fr)
-      #date
-    ],
-    header-ascent: 10%
-  )
 
   if show_cover {
     // show cover page for exam
+    set page(header: context {
+      let page_number = counter(page).get().first()
+      if page_number > 1 [
+        #text(style: "italic")[#course] // header left
+        #h(1fr)
+        #page_number
+        #line(length: 100%, stroke: .7pt)
+      ]
+    })
+
+    align(center)[
+      #v(1fr)
+      #block(text(size: 24pt, weight: 700, title)) // title
+      #v(1fr)
+      #block(text(size: 18pt, course))
+      #block(text(size: 16pt, semester))
+      #v(1fr)
+      #text(pre_name)
+      #v(10pt)
+      #text(pre_id)
+      #v(4fr)
+      #block(text(size: 14pt, date))
+
+      #pagebreak() // page break for cover page
+    ]
+
+    // main body 
+    body
   } else {
-    // show only header information for  quiz
+    // show only header information for quiz
+    set page(
+      margin: (top: 5em), // page top margin
+      header: [
+        #set text(10pt)
+        #text(style: "italic")[#course] // header left
+        #h(1fr)
+        #text(style: "italic")[#date] // header right
+      ],
+      header-ascent: 10%
+    )
+
     align(center)[
       #line(length: 100%, stroke: .7pt)
-      #block(above:5pt, below: 15pt, text(weight: 500, 16pt, title))
+      #block(above:15pt, below: 15pt, text(weight: 500, 16pt, title))
+      #block(text(semester))
       #text(pre_name)
       #h(20pt)
       #text(pre_id)
       #line(length: 100%, stroke: 1.3pt)
       #v(20pt)
     ]
-  }
 
-  // main body  
-  body
+    // main body 
+    body
+  }
+}
+
+
+// exam instruction
+#let instruction(body) = {
+  block(
+    width: 100%,
+    stroke: .7pt,
+    radius: 3pt,
+    inset: 10pt,
+    body
+  )
+  v(30pt)
 }
 
 // problem numbering

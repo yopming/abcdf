@@ -6,17 +6,21 @@
     "Tieming",
   ),
   course: "CSC120 Introduction to Programming Methodology",
+  date: "05/06/2024",
   semester: "Spring 2024",
-  date: "05/06/2024", 
-  show_cover: false,
+  show_cover: true,
 )
 
+#instruction[
+  - Please 
+]
+
 #prob[
-  test
+  test 
 ]
 
 #prob(points:2)[
-  test2
+  test2 
   #solution[
     'test'
   ]
