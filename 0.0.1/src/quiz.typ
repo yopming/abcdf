@@ -24,7 +24,7 @@
       if page_number > 1 [
         #text(style: "italic")[#course] // header left
         #h(1fr)
-        #page_number
+        #counter(page).display("1/1", both: true)
         #line(length: 100%, stroke: .7pt)
       ]
     })
