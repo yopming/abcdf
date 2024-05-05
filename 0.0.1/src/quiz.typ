@@ -86,7 +86,17 @@
     inset: 10pt,
     body
   )
-  v(30pt)
+  v(20pt)
+}
+
+// problem separation such as sections, or different types
+#let category(body) = {
+  align(center)[
+    #v(20pt)
+    #line(length: 100%, stroke: .5pt)
+    #block(above: 4pt, below: 7pt, text(weight: 700, smallcaps(body)))
+    #line(length: 100%, stroke: .5pt)
+  ]
 }
 
 // problem numbering

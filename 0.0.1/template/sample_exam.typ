@@ -19,6 +19,8 @@
   - Good luck!
 ]
 
+#category[Multiple Choices Problems] 
+
 #prob(points:1)[
   Which of the following process is used by the CPU to execute instructions in a program?
   #prob_choices(
