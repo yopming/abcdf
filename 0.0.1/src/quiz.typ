@@ -54,18 +54,27 @@
 
   // point or points
   if points != none {
-    [(points: #points)]
+    [(pts: #points)]
   }
 
   body
-}
 
-// multiple choice problem
-#let prob_single(body) = {
+  v(1em)
 }
 
 // multiple answer problem
-#let prob_multiple(body) = {
+#let prob_choices(..items) = {
+  let choice_counter = counter("options")
+  let options = for item in items.pos() {
+    choice_counter.step() 
+    choice_counter.display("A. ")
+    (item)
+    h(1fr)
+  }
+  
+  pad(left: 12pt,
+    stack(dir: ltr, spacing: 100pt, options)
+  )
 }
 
 // short answer problem
@@ -85,6 +94,5 @@
         #body
       ]
     )
-
   ]
 }

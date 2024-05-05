@@ -10,13 +10,18 @@
   show_cover: false,
 )
 
-#prob(points: 5)[
+#prob[
   test
 ]
 
-#prob(points:111)[
+#prob(points:2)[
   test2  
   #solution[
-    'test' 
+    'test'
   ]
+]
+
+#prob(points:1)[
+  test2
+  #prob_choices("Test", "Second", "Third", "Fourth") 
 ]
