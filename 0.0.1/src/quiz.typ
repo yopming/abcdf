@@ -144,7 +144,8 @@
 }
 
 // blank space problem, space
-#let prob_blank(body) = {
+#let prob_blank(space: 1em) = {
+  align(center)[#v(space)]
 }
 
 // problem solution

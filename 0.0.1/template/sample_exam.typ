@@ -51,3 +51,14 @@
   test2
   #prob_choices("Test", "Second", "Third", "Fourth") 
 ]
+
+
+#prob(points:2)[
+  Convert the binary number 01101101 to decimal. Show your work to get full score.
+  #prob_blank(space: 5em)
+]
+
+#prob(points:2)[
+  Convert the binary number 01101101 to decimal. Show your work to get full score.
+  #prob_blank(space: 20pt)
+]
