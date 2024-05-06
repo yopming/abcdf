@@ -1,3 +1,6 @@
+// global variables
+#let _g_show_solution = state("show_solution", false)
+
 #let exam(
   title: "",
   authors: (), 
@@ -7,6 +10,7 @@
   semester: "",
   date: "",
   show_cover: false,
+  show_solution: false,
   body
 ) = {
   // set the document's basic properties
@@ -15,6 +19,9 @@
   set page(paper: "us-letter")
   set text(11pt, font: "Linux Libertine", lang: "en") // font size
   show raw: text.with(font: "Iosevka") // code font family
+
+  // update global properties
+  _g_show_solution.update(show_solution)
 
 
   if show_cover {
@@ -150,12 +157,20 @@
 
 // problem solution
 #let solution(body) = {
-  [
-    #pad(left: 12pt,
-      rect(width: 100%, stroke: red)[
-        #set text(red)
-        #body
+  locate(loc => {
+    let show_solution = _g_show_solution.final(loc)
+
+    if show_solution {
+      [
+        #pad(left: 12pt,
+          rect(width: 100%, stroke: red)[
+            #set text(red)
+            #body
+          ]
+        )
       ]
-    )
-  ]
+    } else {
+      hide[#body]
+    }
+  })
 }

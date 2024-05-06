@@ -9,6 +9,7 @@
   date: "05/06/2024",
   semester: "Spring 2024",
   show_cover: true,
+  show_solution: false
 )
 
 #instruction[
