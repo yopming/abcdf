@@ -27,7 +27,7 @@
   #prob_choices(
     vertical: false, 
     "Decode-Fetch-Execute",
-    "!!Fetch-Decode-Execute",
+    "! Fetch-Decode-Execute",
     "Decode-Execute-Fetch",
     "Fetch-Execute_Decode",
   )
@@ -36,7 +36,7 @@
 
 #prob[
   Which of the following is the coding scheme contains a set of 128 or 256 numeric codes that used to represent characters in the computer's memory.
-  #prob_choices("Unicode", "ASCII", "FORTRAN", "Two' Complement")
+  #prob_choices("! Unicode", "ASCII", "FORTRAN", "Two' Complement")
 ]
 
 #prob(points:2)[

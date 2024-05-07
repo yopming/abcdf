@@ -136,16 +136,16 @@
 
     // if this one is the correct answer
     let correct = false
-    if item.starts-with("!!") { 
+    if item.starts-with("! ") { 
       correct = true 
-      item = item.slice(2) // remove "!!"
+      item = item.slice(2) // remove "! "
     }
 
     item = choice_counter.display("A. ") + item
 
     // highlight the correct answer
     if correct {
-      highlight(item)
+      highlight(fill: blue)[#item]
     } else {
       item
     }
