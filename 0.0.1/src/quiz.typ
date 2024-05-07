@@ -133,8 +133,24 @@
   // otherwise, new line break
   let options = for item in items.pos() {
     choice_counter.step() 
-    choice_counter.display("A. ")
-    text(hyphenate: false, item)
+
+    // if this one is the correct answer
+    let correct = false
+    if item.starts-with("!!") { 
+      correct = true 
+      item = item.slice(2) // remove "!!"
+    }
+
+    item = choice_counter.display("A. ") + item
+
+    // highlight the correct answer
+    if correct {
+      highlight(item)
+    } else {
+      item
+    }
+
+    // layout of choices
     if not vertical {
       linebreak()
     } else {

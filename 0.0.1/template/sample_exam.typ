@@ -9,7 +9,7 @@
   date: "05/06/2024",
   semester: "Spring 2024",
   show_cover: true,
-  show_solution: false
+  show_solution: true
 )
 
 #instruction[
@@ -27,10 +27,8 @@
   #prob_choices(
     vertical: false, 
     "Decode-Fetch-Execute",
-    "Fetch-Decode-Execute",
+    "!!Fetch-Decode-Execute",
     "Decode-Execute-Fetch",
-    "Fetch-Execute_Decode",
-    "Fetch-Execute_Decode",
     "Fetch-Execute_Decode",
   )
 ]
