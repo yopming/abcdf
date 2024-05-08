@@ -124,28 +124,25 @@
 }
 
 // multiple answer problem
-#let prob_choices(vertical: true, ..items) = {
-  let choice_counter = counter("options")
+// solution by default is 0 (no solution), and the index of choice starts with 1
+#let prob_choices(vertical: true, solution: "0", ..items) = {
+  let choice_counter = counter("choices")
   choice_counter.update(0) // reset counter for each problem
 
-  // manually build the choices stack
-  // if vertical, 10pt + 1fr separation
-  // otherwise, new line break
-  let options = for item in items.pos() {
+  /* manually build the choices stack:
+     - if vertical, 10pt + 1fr separation
+     - otherwise, new line break 
+   */
+  let _index = 1 // choice index 
+  let choices = for item in items.pos() {
     choice_counter.step() 
-
-    // if this one is the correct answer
-    let correct = false
-    if item.starts-with("! ") { 
-      correct = true 
-      item = item.slice(2) // remove "! "
-    }
-
     item = choice_counter.display("A. ") + item
 
     // highlight the correct answer
-    if correct {
-      highlight(fill: blue)[#item]
+    let choice_indices = solution.split(",")
+    let _index_str = str(_index)
+    if choice_indices.contains(_index_str) {
+      highlight(fill: red)[#item]
     } else {
       item
     }
@@ -157,9 +154,11 @@
       h(10pt)
       h(1fr)
     }
+
+    _index += 1
   }
   
-  pad(left: 12pt, stack(options))
+  pad(left: 12pt, stack(choices))
 }
 
 // short answer problem

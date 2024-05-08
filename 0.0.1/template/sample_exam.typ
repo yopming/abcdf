@@ -25,18 +25,18 @@
 #prob(points:1)[
   Which of the following process is used by the CPU to execute instructions in a program?
   #prob_choices(
-    vertical: false, 
+    vertical: false,
+    solution: "1,3",
     "Decode-Fetch-Execute",
-    "! Fetch-Decode-Execute",
+    "Fetch-Decode-Execute",
     "Decode-Execute-Fetch",
     "Fetch-Execute_Decode",
   )
 ]
 
-
 #prob[
   Which of the following is the coding scheme contains a set of 128 or 256 numeric codes that used to represent characters in the computer's memory.
-  #prob_choices("! Unicode", "ASCII", "FORTRAN", "Two' Complement")
+  #prob_choices("Unicode", "ASCII", "FORTRAN", "Two' Complement")
 ]
 
 #prob(points:2)[
@@ -44,6 +44,14 @@
   #solution[
     'test'
   ]
+]
+
+#prob(points:1)[
+  Which of the following is not one boolean expression?
+  #prob_choices(
+    `num == 12.5`,  
+  )
+  #solution[C]
 ]
  
 #prob(points:1)[
