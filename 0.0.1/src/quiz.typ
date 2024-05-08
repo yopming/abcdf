@@ -142,7 +142,7 @@
     let choice_indices = solution.split(",")
     let _index_str = str(_index)
     if choice_indices.contains(_index_str) {
-      highlight(fill: red)[#item]
+      highlight(fill: red, extent: 2pt)[#text(white)[#item]]
     } else {
       item
     }
